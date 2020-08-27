@@ -1,0 +1,5 @@
+{
+  "in": "scss/_styles.scss",
+  "out": "styles.css",
+  "sass": true
+}
