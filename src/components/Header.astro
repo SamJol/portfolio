@@ -1,0 +1,171 @@
+<header class="c-header">
+  <div class="o-container">
+    <h1 class="c-header__title">Samuel Joly <span class="c-header__title-icon">✌️</span></h1>
+    <h3 class="u-gray-color">Développeur web front-end — Montréal, QC</h3>
+    <p class="c-header__description">Développeur web front-end comptant 4+ ans d'expérience en développement web et spécialisé en création de site web WordPress. Passionné par le développement d’interfaces utilisateur intéractives, conviviales, optimisées, attrayantes, réactives et riches en fonctionnalités.</p>
+    <h4>Contact</h4>
+    <p>
+      <a href="mailto:samuel.joly2@gmail.com" target="_blank" rel="noreferrer noopener">samuel.joly2@gmail.com</a> / 
+      <a href="https://github.com/SamJol" target="_blank" rel="noreferrer noopener">Github</a> / 
+      <a href="https://linkedin.com/in/samuel-joly" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+    </p>
+    <div class="c-header__fixed-items">
+      <a class="c-header__resume-link" href="/files/cv.pdf" target="_blank">Voir le CV complet</a>
+      <button class="c-header__color-mode-toggle" aria-label="Basculer le mode de couleur">
+        <svg class="c-header__color-mode-toggle-icon c-header__color-mode-toggle-icon--dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" viewBox="1.69 0 86.61 90">
+          <path d="M 87.823 60.7 c -0.463 -0.423 -1.142 -0.506 -1.695 -0.214 c -15.834 8.398 -35.266 2.812 -44.232 -12.718 c -8.966 -15.53 -4.09 -35.149 11.101 -44.665 c 0.531 -0.332 0.796 -0.963 0.661 -1.574 c -0.134 -0.612 -0.638 -1.074 -1.259 -1.153 c -9.843 -1.265 -19.59 0.692 -28.193 5.66 C 13.8 12.041 6.356 21.743 3.246 33.35 S 1.732 57.08 7.741 67.487 c 6.008 10.407 15.709 17.851 27.316 20.961 C 38.933 89.486 42.866 90 46.774 90 c 7.795 0 15.489 -2.044 22.42 -6.046 c 8.601 -4.966 15.171 -12.43 18.997 -21.586 C 88.433 61.79 88.285 61.123 87.823 60.7 z" stroke-linecap="round"></path>
+        </svg>
+        <svg class="c-header__color-mode-toggle-icon c-header__color-mode-toggle-icon--light"
+          stroke="#191918" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20">
+          <line x1="9.99" y1="3.03" x2="9.99" y2="1.03" />
+          <line x1="14.93" y1="5.07" x2="16.35" y2="3.66" />
+          <line x1="16.98" y1="10.01" x2="18.98" y2="10.01" />
+          <line x1="14.93" y1="14.96" x2="16.35" y2="16.37" />
+          <line x1="9.99" y1="17" x2="9.99" y2="19" />
+          <line x1="5.05" y1="5.07" x2="3.63" y2="3.66" />
+          <line x1="3" y1="10.01" x2="1" y2="10.01" />
+          <line x1="5.05" y1="14.96" x2="3.63" y2="16.37" />
+          <path d="M5.99,10.03a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" fill="none" />
+        </svg>
+      </button>
+    </div>
+    <hr>
+  </div>
+</header>
+
+<style lang="scss">
+  @import '../styles/_tools.scss';
+  @import '../styles/_settings.scss';
+  .c-header {
+    padding: 3rem 0 0;
+    &__title { margin-top: 0; }
+    &__title + h3 { margin-top: 0.5em; }
+    &__description { margin-top: 2.5rem; }
+    &__fixed-items { position: fixed; right: 2rem; bottom: 1.75rem; z-index: 1; }
+    &__color-mode-toggle {
+      
+      display: inline-flex; justify-content: center; align-items: center; width: 2.5rem; height: 2.5rem; margin-left: 2rem; border-radius: 50%; background-color: color(bg); will-change: transform;
+      &-icon { position: absolute; width: calc(100% - 1rem); height: auto; fill: color(text); transition: transform 1.2s $ease-slow-out }
+      &:hover &-icon { transform: rotate(-45deg) scale(1.15); }
+      &-icon--dark { width: calc(100% - 1.15rem); }
+      &:hover &-icon--dark { transform: rotate(-30deg) scale(1.15); }
+
+      // Light mode
+      html.is-light-mode & {
+        @include dark-mode-colors; 
+        &-icon--dark { opacity: 1; }
+        &-icon--light { opacity: 0; }
+      }
+      
+      // Dark mode
+      html.is-dark-mode & {
+        @include light-mode-colors; 
+        &-icon--light { opacity: 1; }
+        &-icon--dark { opacity: 0; }
+      }
+    }
+
+    // Phone MQ
+    @media (max-width: $to-small) {
+      &__fixed-items { display: none; }
+    }
+  }
+</style>
+
+<script>
+
+  import gsap from 'gsap';
+  declare var lenis: any;
+  const colorModeSwitcher = document.querySelector('.c-header__color-mode-toggle');
+
+  // ====================================================================
+  // Site title emojis interval
+  // ====================================================================
+  const icons = ['💻', '🤞', '🍺', '👌', '🥡', '🤙', '☕️', '🙌', '💣', '✌️'];
+  let currentIconIndex = 0;
+  setInterval(() => {
+    const headerTitleIcons = document.querySelectorAll('.c-header__title-icon'); // Can be multiple with color mode switcher
+    headerTitleIcons.forEach((element) => element.innerHTML = icons[currentIconIndex]);
+    currentIconIndex = currentIconIndex >= icons.length - 1 ? 0 : currentIconIndex + 1;
+  }, 1100);
+
+  // ====================================================================
+  // Color mode switcher
+  // ====================================================================
+  let isSwitchingColorMode = false;
+  const pageHtml = document.body.innerHTML;
+
+  const switch_color_mode = async () => {
+
+    if(isSwitchingColorMode) return;
+    isSwitchingColorMode = true;
+    const isLightMode = document.documentElement.classList.contains('is-light-mode')
+
+    // Disable scroll
+    lenis.stop();
+
+    // Hide toggle button
+    const color_mode_toggle_icon = document.querySelector(`.c-header__color-mode-toggle`);
+    gsap.to(color_mode_toggle_icon, { scale: 0, rotate: 20, duration: 0.5, ease: 'power3.in' });
+
+    // Adds the temporary absolute page elements container
+    const overlay = document.createElement('div');
+    Object.assign(overlay.style, { // Styles
+      position       : 'absolute',
+      top            : 0,
+      left           : 0,
+      width          : '100%',
+      color          : 'var(--color-text)',
+      backgroundColor: 'var(--color-bg)',
+      opacity        : 0,
+      pointerEvents  : 'none'
+    });
+    overlay.innerHTML = pageHtml;
+    overlay.classList.add(isLightMode ? 'is-dark-mode' : 'is-light-mode');
+    gsap.set(overlay.querySelector('.c-header__fixed-items'), { opacity: 0 })
+    document.body.append(overlay);    
+
+    // Set the clip-path of the temporary DIV and animates it
+    const pageHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+    const switcherRect = colorModeSwitcher.getBoundingClientRect();
+
+    const clipPathFromValues = [
+      switcherRect.top + document.documentElement.scrollTop,
+      document.body.clientWidth - switcherRect.right,
+      pageHeight - switcherRect.bottom - document.documentElement.scrollTop,
+      switcherRect.left
+    ].map((val) => `${val}px`).join(' ');
+    const clipPathToValues = [
+      document.documentElement.scrollTop,
+      0,
+      pageHeight - window.innerHeight - document.documentElement.scrollTop,
+      0
+    ].map((val) => `${val}px`).join(' ');
+    await gsap.fromTo(overlay, { clipPath: `inset(${clipPathFromValues} round ${switcherRect.width / 2}px)` }, { clipPath: `inset(${clipPathToValues} round 0px)`, duration: 1.15, ease: 'expo.inOut', onStart: () => gsap.set(overlay, { opacity: 1 }) })
+
+    // Display toggle button
+    gsap.fromTo(color_mode_toggle_icon, { scale: 0, rotate: -50 }, { scale: 1, rotate: 0, duration: 1, delay: 0.2, ease: 'expo.out' });
+
+    // Manage state classes
+    if (!isLightMode) {
+      document.documentElement.classList.remove('is-dark-mode');
+      document.documentElement.classList.add('is-light-mode');
+    }
+    else {
+      document.documentElement.classList.remove('is-light-mode');
+      document.documentElement.classList.add('is-dark-mode');
+    }
+
+    // Removes the DIV from DOM
+    overlay.remove();
+    isSwitchingColorMode = false;
+    lenis.start();
+
+  }
+
+  // Add event listener on button click
+  colorModeSwitcher.addEventListener('click', switch_color_mode);
+
+</script>

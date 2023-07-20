@@ -1,0 +1,94 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss"
+  ],
+  "fix": true,
+  "ignoreFiles": [
+    "**/*.css"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-import-no-partial-leading-underscore": null,
+    "scss/at-import-partial-extension": null,
+    "scss/dollar-variable-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "scss/at-rule-no-unknown": true,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/at-mixin-parentheses-space-before": "always",
+    "scss/at-mixin-argumentless-call-parentheses": "never",
+    "scss/at-if-no-null": true,
+    "scss/double-slash-comment-empty-line-before": [
+      "always",
+      {
+        "ignore": [
+          "between-comments",
+          "stylelint-commands"
+        ]
+      }
+    ],
+    "scss/no-global-function-names": null,
+    "scss/at-extend-no-missing-placeholder": null,
+    "comment-no-empty": null,
+    "scss/comment-no-empty": true,
+    "declaration-empty-line-before": null,
+    "selector-class-pattern": "^[a-z0-9_-]*$",
+    "selector-id-pattern": null,
+    "no-invalid-position-at-import-rule": null,
+    "no-invalid-double-slash-comments": null,
+    "declaration-block-single-line-max-declarations": null,
+    "function-calc-no-unspaced-operator": null,
+    "rule-empty-line-before": null,
+    "max-empty-lines": 2,
+    "property-no-vendor-prefix": null,
+    "selector-pseudo-class-case": null,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "custom-property-pattern": null,
+    "keyframes-name-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "max-line-length": null,
+    "string-quotes": "double",
+    "font-family-no-missing-generic-family-keyword": null,
+    "block-opening-brace-newline-after": "always-multi-line",
+    "selector-list-comma-newline-after": "always-multi-line",
+    "at-rule-semicolon-newline-after": null,
+    "declaration-block-semicolon-newline-after": null,
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "ignore": [
+          "after-comment",
+          "first-nested",
+          "inside-block",
+          "blockless-after-same-name-blockless"
+        ]
+      }
+    ],
+    "indentation": [
+      2,
+      {
+        "indentClosingBrace": false
+      }
+    ],
+    "comment-empty-line-before": [
+      "always",
+      {
+        "ignore": [
+          "after-comment",
+          "stylelint-commands"
+        ]
+      }
+    ],
+    "length-zero-no-unit": [
+      true,
+      {
+        "ignore": [
+          "custom-properties"
+        ]
+      }
+    ]
+  }
+}

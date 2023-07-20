@@ -1,0 +1,104 @@
+// ==========================================================================
+// Elements / Document
+// ==========================================================================
+
+// Simple page-level setup.
+// 1. Include web fonts
+// 2. Ensure the page always fills at least the entire height of the viewport.
+// 3. Set the default `font-size` and `line-height` for the entire project,
+//    sourced from our default variables.
+
+@include font-faces($font-faces, $font-dir); // [1]
+
+:root {
+  color-scheme: light dark;
+  @include light-mode-colors;
+
+  @media (prefers-color-scheme: dark) {
+    @include dark-mode-colors;
+  }
+}
+
+html {
+  min-height: 100%; // [2]
+  line-height: 1; // [3]
+  font-family: ff("sans");
+  color: color(text);
+  background-color: color(bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &.is-light-mode, .is-light-mode { @include light-mode-colors; }
+  &.is-dark-mode, .is-dark-mode { @include dark-mode-colors; }
+
+  @media (max-width: $to-small) {
+    font-size: $font-size - 2px;
+  }
+
+  @media (min-width: $from-small) and (max-width: $to-medium) {
+    font-size: $font-size - 2px;
+  }
+
+  @media (min-width: $from-medium) and (max-width: $to-large) {
+    font-size: $font-size - 1px;
+  }
+
+  @media (min-width: $from-large) and (max-width: $to-huge) {
+    font-size: $font-size; // [1]
+  }
+
+  @media (min-width: $from-huge) and (max-width: $to-gigantic) {
+    font-size: $font-size + 1px;
+  }
+
+  @media (min-width: $from-gigantic) and (max-width: $to-colossal) {
+    font-size: $font-size + 2px;
+  }
+
+  @media (min-width: $from-colossal) {
+    font-size: $font-size + 4px;
+  }
+
+}
+
+::selection {
+  background-color: var(--text-selection-bg-color, color(primary));
+  color: color(white);
+  text-shadow: none;
+}
+
+main { padding-bottom: 7rem; }
+
+// ==========================================================================
+// Elements / Headings
+// ==========================================================================
+:root {
+  --font-size-h1: #{rem(30px)};
+  --font-size-h2: #{rem(24px)};
+  --font-size-h3: #{rem(18px)};
+  --font-size-h4: #{rem(15px)};
+}
+
+h1, .u-h1 { margin-top: 3em; font-size: var(--font-size-h1); font-family: ff(sans); font-weight: 900; line-height: 1em; letter-spacing: -0.02em; }
+h2, .u-h2 { margin-top: 3em; font-size: var(--font-size-h2); font-family: ff(sans); font-weight: 900; line-height: 1em; letter-spacing: -0.02em; }
+h3, .u-h3 { margin-top: 3em; font-size: var(--font-size-h3); font-family: ff(sans); font-weight: 900; line-height: 1em; letter-spacing: -0.02em; }
+h4, .u-h4 { margin-top: 3em; font-size: var(--font-size-h4); font-family: ff(sans); font-weight: 900; line-height: 1em; letter-spacing: -0.02em; }
+
+// ==========================================================================
+// Elements / Misc
+// ==========================================================================
+
+hr { max-width: 3rem; margin: 3.75rem 0; border-color: color(borders); border-style: solid; border-width: 1px 0 0; }
+
+p { margin-top: 0.5em; line-height: 1.3em; }
+
+a { color: color(primary); }
+a::after { content: ""; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; transform-origin: right center; transform: scaleX(0) translateZ(0); background-color: currentcolor; transition: 0.375s transform $ease-power3-in-out; }
+a:hover::after { transform-origin: left center; transform: scaleX(1) translateZ(0); }
+
+ul { --ul-left-padding: 2em; --ul-item-mark-w: 8px; padding-left: var(--ul-left-padding); }
+ul li { line-height: 1.3em; }
+ul li::before { content: ""; position: absolute; left: calc(var(--ul-left-padding) * -1); top: 0.475em; transform: translateY(-50%); width: var(--ul-item-mark-w); height: var(--ul-item-mark-w); border-radius: 50%; background-color: color(primary); }
+
+@media (max-width: $to-small) {
+  ul { --ul-left-padding: 1.25em; --ul-item-mark-w: 7px; }
+}

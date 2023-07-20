@@ -1,0 +1,192 @@
+// ==========================================================================
+// Generic / Reset CSS
+// ==========================================================================
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before, blockquote::after, q::before, q::after {
+  content: "";
+  content: none;
+}
+
+:focus {
+  outline: 0;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+p, h1, h2, h3, h4, h5, h6, strong, a, span, li {
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  -o-user-select: text;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="number"], input[type="submit"], select, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+a, a *, input[type="submit"] {
+  cursor: pointer;
+}
+
+button, input[type="submit"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+small {
+  font-size: 0.85em;
+}
+
+
+// ==========================================================================
+// Generic / Buttons
+// ==========================================================================
+
+// 1. Allow us to style box model properties.
+// 2. Fixes odd inner spacing in IE7.
+// 3. Reset/normalize some styles.
+// 4. Line different sized buttons up a little nicer.
+// 5. Make buttons inherit font styles (often necessary when styling `input`s as buttons).
+// 6. Force all button-styled elements to appear clickable.
+
+button {
+  display: inline-block; // [1]
+  overflow: visible; // [2]
+  margin: 0; // [3]
+  padding: 0;
+  outline: 0;
+  border: 0;
+  background: none transparent;
+  color: inherit;
+  vertical-align: middle; // [4]
+  text-align: center; // [3]
+  text-decoration: none;
+  text-transform: none;
+  font: inherit; // [5]
+  line-height: normal;
+  cursor: pointer; // [6]
+  user-select: none;
+}
+
+// ==========================================================================
+// Generic / Media
+// ==========================================================================
+
+// 1. Setting `vertical-align` removes the whitespace that appears under `img`
+//    elements when they are dropped into a page as-is. Safer alternative to
+//    using `display: block;`.
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; // [1]
+}
+
+// Add the correct display in iOS 4-7.
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+// 2. Fluid media for responsive purposes.
+
+img,
+svg {
+  max-width: 100%; // [2]
+  height: auto;
+
+  // 4. If a `width` and/or `height` attribute have been explicitly defined,
+  //    let’s not make the image fluid.
+
+  &[width], &[height] {
+    max-width: none; // [4]
+  }
+}
+
+// 4. Offset `alt` text from surrounding copy.
+
+img {
+  font-style: italic; // [4]
+}
+
+// 5. SVG elements should fallback to their surrounding text color.
+
+svg {
+  fill: currentcolor; // [5]
+}

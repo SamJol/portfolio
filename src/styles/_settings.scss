@@ -1,0 +1,135 @@
+@use "sass:map";
+
+// ==========================================================================
+// Settings / Colors
+// ==========================================================================
+
+$colors: (
+  white     : #f5efeb,
+  black     : #1a1a19,
+  gray      : #c2b9b6,
+  light-gray: #f4f2f1,
+  red       : #eb6659,
+);
+
+// System -------------------------------------------------------------------
+// Light mode
+$colors: map.merge($colors, (
+  bg     : color(white),
+  text   : color(black),
+  borders: color(gray),
+  primary: color(red),
+));
+
+// Dark mode
+$dark-colors: (
+  gray   :#72726d,
+  bg     : #191918,
+  text   : color(light-gray),
+  borders: #2d2d2a,
+  primary: #e86559,
+);
+
+// ==========================================================================
+// Settings / Fonts
+// ==========================================================================
+
+// Font directory (From /public directory)
+$font-dir: "/fonts/";
+
+// Font fallbacks (retrieved from systemfontstack.com on 2022-05-31)
+$font-fallback-sans: -apple-system, blinkmacsystemfont, avenir next, avenir, segoe ui, helvetica neue, helvetica, cantarell, ubuntu, roboto, noto, arial, sans-serif;
+$font-fallback-serif: iowan old style, apple garamond, baskerville, times new roman, droid serif, times, source serif pro, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+$font-fallback-mono: menlo, consolas, monaco, liberation mono, lucida console, monospace;
+
+// Map of font families.
+$font-families: (
+  sans: join("Circular", $font-fallback-sans, $separator: comma),
+);
+
+// List of custom font faces as tuples.
+$font-faces: (
+  ("Circular", "CircularStd-Black", 900, normal),
+  ("Circular", "CircularStd-Bold", 700, normal),
+  ("Circular", "CircularStd-Book", 400, normal)
+);
+
+// =============================================================================
+// Settings / Typography
+// =============================================================================
+
+// Base
+$font-size: 16px;
+
+// ==========================================================================
+// Settings / Eases
+// ==========================================================================
+
+// Power 1
+$ease-power1-in: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+$ease-power1-out: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+$ease-power1-in-out: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+// Power 2
+$ease-power2-in: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$ease-power2-out: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+$ease-power2-in-out: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+
+// Power 3
+$ease-power3-in: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$ease-power3-out: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$ease-power3-in-out: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+// Power 3
+$ease-power4-in: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+$ease-power4-out: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$ease-power4-in-out: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+
+// Expo
+$ease-expo-in: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$ease-expo-out: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$ease-expo-in-out: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
+// Back
+$ease-back-in: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+$ease-back-out: cubic-bezier(0.175, 00.885, 0.320, 1.275);
+$ease-back-in-out: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+// Sine
+$ease-sine-in: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$ease-sine-out: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+$ease-sine-in-out: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+// Circ
+$ease-circ-in: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+$ease-circ-out: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+$ease-circ-in-out: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+// Misc
+$ease-bounce: cubic-bezier(0.17, 0.67, 0.3, 1.33);
+$ease-slow-out: cubic-bezier(.04,1.15,0.4,.99);
+$ease-smooth: cubic-bezier(0.380, 0.005, 0.215, 1);
+
+
+// ==========================================================================
+// Settings / Breakpoints
+// =============================================================================
+
+$from-tiny: 500px !default;
+$to-tiny: $from-tiny - 1 !default;
+$from-small: 700px !default;
+$to-small: $from-small - 1 !default;
+$from-medium: 1000px !default;
+$to-medium: $from-medium - 1 !default;
+$from-large: 1200px !default;
+$to-large: $from-large - 1 !default;
+$from-big: 1400px !default;
+$to-big: $from-big - 1 !default;
+$from-huge: 1600px !default;
+$to-huge: $from-huge - 1 !default;
+$from-enormous: 1800px !default;
+$to-enormous: $from-enormous - 1 !default;
+$from-gigantic: 2000px !default;
+$to-gigantic: $from-gigantic - 1 !default;
+$from-colossal: 2400px !default;
+$to-colossal: $from-colossal - 1 !default;

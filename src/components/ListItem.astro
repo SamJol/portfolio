@@ -1,0 +1,72 @@
+---
+export interface Props {
+	title: string;
+	subTitle?: string;
+	link?: string;
+	description?: string;
+	subList?: Array<String>;
+	tags?: Array<String>;
+  startDate?: string;
+  endDate?: string;
+}
+
+const { title, subTitle, link, description, subList, tags, startDate, endDate } = Astro.props;
+---
+
+<li class="c-list-item">
+
+  <!-- Main content  -->
+  <div class="c-list-item__content">
+    <div class="c-list-item__title-container">
+      <h3 class="c-list-item__title">{ link ? <a href={ link } target="_blank" rel="noreferrer noopener">{ title }</a> : title }</h3>
+      { subTitle && <h4 class="c-list-item__sub-title u-gray-color">{ subTitle }</h4> }
+    </div>
+    { startDate && 
+      <div class="c-list-item__dates u-h3 u-gray-color">
+        { endDate && <span>{ endDate }</span> }
+        <span>{ startDate }</span>
+      </div>
+    }
+  </div>
+
+  <!-- Description -->
+  { description && 
+    <p class="c-list-item__description">
+      { description }
+    </p> 
+  }
+
+  <!-- Tags -->
+  { tags && 
+    <p class="c-list-item__tags">
+      { tags.map(tag => `#${tag}`).join(', ') }
+    </p> 
+  }
+
+  <!-- Sub List -->
+  { subList && 
+    <ul class="c-list-item__sub-list">
+      { subList.map(subListItem => <li>{ subListItem }</li>) }
+    </ul>
+  }
+
+</li>
+
+<style lang="scss">
+  @import '../styles/_tools.scss';
+  @import '../styles/_settings.scss';
+  .c-list-item {
+    &::after { content: ""; position: absolute; left: calc((var(--ul-item-mark-w) / 2) - var(--ul-left-padding)); top: 0.5em; height: calc(100% + 3rem); border-left: 1px solid color(borders); z-index: -1; }
+    &:not(:first-child) { margin-top: 3rem; }
+    &__content { display: flex; justify-content: space-between; }
+    &__title { margin: 0; }
+    &__sub-title { margin-top: 0.4em; }
+    &__dates { margin-top: 0; }
+    &__dates span { display: block; text-align: right; }
+    &__description,
+    &__sub-list { margin-top: 1.5rem; font-size: 0.9rem; }
+    &__sub-list { --ul-left-padding: 1.5em; --ul-item-mark-w: 0.4em; }
+    &__sub-list li:not(:first-child) { margin-top: 0.85rem; }
+    &__tags { margin-top: 0.5rem;  font-size: 0.75rem; }
+  } 
+</style>
