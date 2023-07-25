@@ -13,7 +13,7 @@ let jobs = await getCollection('jobs');
 <Layout pageTitle="Samuel Joly // Développeur web front-end">
 
   <!-- Work -->
-  { work && <List title="Projets selectionnés 👨‍💻">
+  { work && <List title="Contributions selectionnées 👨‍💻">
     {work.map(workItem => (
       <ListItem 
         title       = { workItem.data.title }

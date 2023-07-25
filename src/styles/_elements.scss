@@ -89,7 +89,7 @@ h4, .u-h4 { margin-top: 3em; font-size: var(--font-size-h4); font-family: ff(san
 
 hr { max-width: 3rem; margin: 3.75rem 0; border-color: color(borders); border-style: solid; border-width: 1px 0 0; }
 
-p { margin-top: 0.5em; line-height: 1.3em; }
+p { font-size: 1rem; margin-top: 0.5em; line-height: 1.3em; }
 
 a { color: color(primary); }
 a::after { content: ""; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; transform-origin: right center; transform: scaleX(0) translateZ(0); background-color: currentcolor; transition: 0.375s transform $ease-power3-in-out; }
@@ -97,7 +97,7 @@ a:hover::after { transform-origin: left center; transform: scaleX(1) translateZ(
 
 ul { --ul-left-padding: 2em; --ul-item-mark-w: 8px; padding-left: var(--ul-left-padding); }
 ul li { line-height: 1.3em; }
-ul li::before { content: ""; position: absolute; left: calc(var(--ul-left-padding) * -1); top: 0.475em; transform: translateY(-50%); width: var(--ul-item-mark-w); height: var(--ul-item-mark-w); border-radius: 50%; background-color: color(primary); }
+ul li::before { content: ""; position: absolute; left: calc(var(--ul-left-padding) * -1); top: 0.5em; transform: translateY(-50%); width: var(--ul-item-mark-w); height: var(--ul-item-mark-w); border-radius: 50%; background-color: color(primary); }
 
 @media (max-width: $to-small) {
   ul { --ul-left-padding: 1.25em; --ul-item-mark-w: 7px; }
