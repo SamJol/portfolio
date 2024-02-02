@@ -4,6 +4,7 @@ description: Société de recyclage expert en traitement et commerce de ferraill
 date       : 2022-09-01
 link       : https://rmi-imr.com/
 company    : fatfish
-technologies:
+extraInfos:
   - WordPress
+  - GSAP
 ---

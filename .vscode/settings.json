@@ -4,9 +4,12 @@
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": true,
+    "source.fixAll.stylelint": "explicit"
   },
   "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[astro]": {
     "editor.formatOnSave": false
   },
   "stylelint.enable": true,

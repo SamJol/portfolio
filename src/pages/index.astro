@@ -1,43 +1,53 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import List from '../components/List.astro';
-import ListItem from '../components/ListItem.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import List from "../components/List.astro";
+import ListItem from "../components/ListItem.astro";
+import { getCollection } from "astro:content";
 
-let work = await getCollection('work');
-work = work.sort((a, b) => a.data.date > b.data.date ? -1 : 1);
+let work = await getCollection("work");
+work = work.sort((a, b) => (a.data.date > b.data.date ? -1 : 1));
 
-let jobs = await getCollection('jobs');
+let jobs = await getCollection("jobs");
 ---
 
 <Layout pageTitle="Samuel Joly // Développeur web front-end">
-
   <!-- Work -->
-  { work && <List title="Contributions selectionnées 👨‍💻">
-    {work.map(workItem => (
-      <ListItem 
-        title       = { workItem.data.title }
-        subTitle    = { workItem.data.company }
-        link        = { workItem.data.link }
-        description = { workItem.data.description }
-        tags        = { workItem.data.technologies }
-        startDate   = { workItem.data.date.getFullYear().toString() }
-      />
-    ))}
-  </List> }
+  {
+    work && (
+      <List title="Contributions selectionnées 👨‍💻">
+        {work.map((workItem) => (
+          <ListItem
+            title={workItem.data.title}
+            subTitle={workItem.data.company}
+            link={workItem.data.link}
+            description={workItem.data.description}
+            tags={workItem.data.extraInfos}
+            startDate={workItem.data.date.getFullYear().toString()}
+          />
+        ))}
+      </List>
+    )
+  }
 
   <!-- Jobs -->
-  { jobs && <List title="Expériences professionnels 🛠️">
-    {jobs.map(job => (
-      <ListItem 
-        title     = { job.data.company }
-        link      = { job.data.companyLink }
-        subTitle  = { job.data.jobTitle }
-        subList   = { job.data.tasks }
-        startDate = { job.data.dates.startDate.getFullYear().toString() }
-        endDate   = { job.data.dates.endDate ? job.data.dates.endDate.getFullYear().toString() : 'Présent' } 
-      />
-    ))}
-  </List> }
-
+  {
+    jobs && (
+      <List title="Expériences professionnels 👨‍💼">
+        {jobs.map((job) => (
+          <ListItem
+            title={job.data.company}
+            link={job.data.companyLink}
+            subTitle={job.data.jobTitle}
+            subList={job.data.tasks}
+            startDate={job.data.dates.startDate.getFullYear().toString()}
+            endDate={
+              job.data.dates.endDate
+                ? job.data.dates.endDate.getFullYear().toString()
+                : "Présent"
+            }
+          />
+        ))}
+      </List>
+    )
+  }
 </Layout>

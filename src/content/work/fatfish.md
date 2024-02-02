@@ -4,6 +4,7 @@ description : Quatrième itération du portfolio maison de l'agence numérique f
 date        : 2023-02-01
 link        : https://fatfish.ca/
 company     : fatfish
-technologies: 
+extraInfos: 
   - WordPress
+  - GSAP
 ---

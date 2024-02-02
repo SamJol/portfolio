@@ -17,7 +17,7 @@ const work = defineCollection({
     date        : z.coerce.date(),
     link        : z.string().url(),
     company     : z.string(),
-    technologies: z.array(z.string()).optional()
+    extraInfos: z.array(z.string()).optional()
   }),
 });
 const jobs = defineCollection({

@@ -4,6 +4,7 @@ description : Entreprise de nettoyage offrant plusieurs solutions de lavage à h
 date        : 2021-02-23
 link        : https://groupeafn.com/
 company     : fatfish
-technologies: 
+extraInfos: 
   - WordPress
+  - GSAP
 ---

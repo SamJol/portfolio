@@ -4,6 +4,7 @@ description : Entreprise québécoise qui conçoit des systèmes dans le domaine
 date        : 2021-05-25
 link        : https://nxtprocess.com/
 company     : fatfish
-technologies: 
+extraInfos: 
   - WordPress
+  - GSAP
 ---

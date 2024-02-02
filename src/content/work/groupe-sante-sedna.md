@@ -4,6 +4,7 @@ description: Organisation privée spécialisée dans l’administration et la pr
 date       : 2023-06-01
 link       : https://groupesedna.ca/
 company    : fatfish
-technologies:
+extraInfos:
   - WordPress
+  - GSAP
 ---
