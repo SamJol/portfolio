@@ -1,7 +1,6 @@
 ---
 import '../styles/styles.scss';
 import Header from '../components/Header.astro';
-
 export interface Props {
 	pageTitle: string;
 }
@@ -18,6 +17,8 @@ const { pageTitle } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><text y=&quot;1em&quot; x=&quot;.1em&quot; font-size=&quot;85&quot;>✌️</text></svg>">
     <link rel="me" title="GitHub" href="https://github.com/SamJol">
     <link rel="me" title="LinkedIn" href="https://linkedin.com/in/samuel-joly">
+    <link rel="preload" href="fonts/CircularStd-Book.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/CircularStd-Black.woff2" as="font" type="font/woff2" crossorigin>
     <script src="../scripts/scripts.js"></script>
 		<title>{pageTitle}</title>
 	</head>
